@@ -15,9 +15,9 @@ def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Erm what the sigma??')
 
 def main() -> None:
-    updater = Updater("TELEGRAM_BOT_TOKEN", request_kwargs={'read_timeout': 10, 'connect_timeout': 10})
-
-    updater.dispatcher.add_handler(CommandHandler("start", start))
+    updater = Updater(TELEGRAM_BOT_TOKEN)
+    dispatcher = updater.dispatcher
+    dispatcher.add_handler(CommandHandler("start", start))
 
     updater.start_polling()
     updater.idle()
