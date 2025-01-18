@@ -2,7 +2,6 @@ import os
 import httpx
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
-from supabase_py import create_client, Client
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_fixed
 import logging
