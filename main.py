@@ -10,7 +10,7 @@ import logging
 from typing import List
 
 load_dotenv()
-TELEGRAM_BOT_TOKEN = "8192019759:AAHFGG-fMpIh-pj-gqALqJRd3CWeN7rOxTI"
+TELEGRAM_BOT_TOKEN = "8122445200:AAF6Kh0kqdQyS-y-Y1wfrQ_6EsxiaiVCNVU"
 
 def start(update: Update, context: CallbackContext) -> None:
     keyboard = [
@@ -20,14 +20,15 @@ def start(update: Update, context: CallbackContext) -> None:
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=TRUE)
     update.message.reply_text("Choose an option: ", reply_markup=reply_markup)
 
-def split(update: Update, context: CallbackContext) -> None:
+
+def notes(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Do it yourself la')
 
 def main() -> None:
     updater = Updater(TELEGRAM_BOT_TOKEN)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("split", split))
+    dispatcher.add_handler(CommandHandler("notes", notes))
 
     updater.start_polling()
     updater.idle()
