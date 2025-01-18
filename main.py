@@ -1,7 +1,7 @@
 import os
 import httpx
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, CallbackContext, CallbackQueryHandler
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_fixed
 import logging
