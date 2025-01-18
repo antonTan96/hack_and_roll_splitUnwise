@@ -1,0 +1,26 @@
+import os
+import httpx
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
+from supabase_py import create_client, Client
+from dotenv import load_dotenv
+from tenacity import retry, stop_after_attempt, wait_fixed
+import logging
+from typing import List
+
+load_dotenv()
+TELEGRAM_BOT_TOKEN = "8192019759:AAHFGG-fMpIh-pj-gqALqJRd3CWeN7rOxTI"
+
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Erm what the sigma??')
+
+def main() -> None:
+    updater = Updater("TELEGRAM_BOT_TOKEN", request_kwargs={'read_timeout': 10, 'connect_timeout': 10})
+
+    updater.dispatcher.add_handler(CommandHandler("start", start))
+
+    updater.start_polling()
+    updater.idle()
+
+if __name__ == '__main__':
+    main()
