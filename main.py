@@ -1,6 +1,6 @@
 import os
 import httpx
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, ReplyKeyboardMarkup
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext, CallbackQueryHandler
 from dotenv import load_dotenv
 from tenacity import retry, stop_after_attempt, wait_fixed
@@ -11,7 +11,12 @@ load_dotenv()
 TELEGRAM_BOT_TOKEN = "8192019759:AAHFGG-fMpIh-pj-gqALqJRd3CWeN7rOxTI"
 
 def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('Erm what the sigma??')
+    keyboard = [
+    ["A", "B"]
+    ["C", "D"]
+    ]
+    reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=TRUE)
+    update.message.reply_text("Choose an option: ", reply_markup=reply_markup)
 
 def split(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Do it yourself la')
