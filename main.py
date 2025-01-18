@@ -14,10 +14,14 @@ TELEGRAM_BOT_TOKEN = "8192019759:AAHFGG-fMpIh-pj-gqALqJRd3CWeN7rOxTI"
 def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text('Erm what the sigma??')
 
+def split(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Do it yourself la')
+
 def main() -> None:
     updater = Updater(TELEGRAM_BOT_TOKEN)
     dispatcher = updater.dispatcher
     dispatcher.add_handler(CommandHandler("start", start))
+    dispatcher.add_handler(CommandHandler("split", split))
 
     updater.start_polling()
     updater.idle()
